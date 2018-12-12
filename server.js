@@ -89,7 +89,7 @@ console.log(outputName);
       .map(result => result.alternatives[0].transcript)
       .join('\n');
 		console.log(`Transcription: `, transcription);
-		    res.send('result - '+transcription);
+		    res.send(' '+transcription);
   })
   .catch(err => {
     console.error('ERROR:', err);
