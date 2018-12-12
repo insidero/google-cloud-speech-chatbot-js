@@ -12,14 +12,14 @@ const client = new speech.SpeechClient();
 // const encoding = 'Encoding of the audio file, e.g. LINEAR16';
 // const sampleRateHertz = 16000;
 // const languageCode = 'BCP-47 language code, e.g. en-US';
-
 const config = {
-  encoding: 'LINEAR16',
+  encoding: 'OGG_OPUS',
   sampleRateHertz: '48000',
   languageCode: 'en-US',
 };
+
 const audio = {
-  content: fs.readFileSync('/Users/hamzarashid/Downloads/file.wav').toString('base64'),
+  content: fs.readFileSync('/Users/hamzarashid/Downloads/file.opus').toString('base64'),
 };
 
 const request = {

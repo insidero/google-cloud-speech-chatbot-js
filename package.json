@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "ffmpeg-node": "0.0.2",
+    "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
     "i": "^0.3.6",
     "multer": "^1.4.1",
