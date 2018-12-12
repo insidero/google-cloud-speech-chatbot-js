@@ -1,0 +1,22 @@
+{
+  "name": "g-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "audiobuffer-to-wav": "^1.0.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "multer": "^1.4.1",
+    "node-wav": "0.0.2",
+    "xhr": "^2.5.0"
+  }
+}
