@@ -6,6 +6,34 @@ const upload = require('multer')({ dest: 'uploads/' });
 const cors = require('cors');
 var toWav = require('audiobuffer-to-wav')
 var xhr = require('xhr')
+
+const fs = require('fs');
+
+// Imports the Google Cloud client library
+const speech = require('@google-cloud/speech');
+
+// Creates a client
+const client = new speech.SpeechClient();
+
+/**
+ * TODO(developer): Uncomment the following lines before running the sample.
+ */
+// const filename = 'Local path to audio file, e.g. /path/to/audio.raw';
+// const encoding = 'Encoding of the audio file, e.g. LINEAR16';
+// const sampleRateHertz = 16000;
+// const languageCode = 'BCP-47 language code, e.g. en-US';
+
+const request = {
+  config: {
+    encoding: encoding,
+    sampleRateHertz: sampleRateHertz,
+    languageCode: languageCode,
+  },
+  interimResults: false, // If you want interim results, set this to true
+};
+
+
+
 app.use(cors());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -27,19 +55,6 @@ app.post('/speechtotext', upload.single('audioFile'), function (req, res) {
 
 console.log('Recieved   ', req.file);
 
-const flac      = require('node-flac'),
-      wav       = require('node-wav'),
-      fs        = require('fs'),
-      wavReader = new wav.Reader()
- 
-wavReader.on('format', function (format) {
-  const flacEncoder = new flac.FlacEncoder(format)
- 
-  wavReader.pipe(flacEncoder).pipe(fs.createWriteStream('output.flac'));
-  console.log('converted');
-})
- 
-fs.createReadStream(req.file).pipe(wavReader);
 res.send('recieved by server');
 });
 
