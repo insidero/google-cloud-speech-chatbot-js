@@ -34,11 +34,7 @@ const client = new speech.SpeechClient();
 // const sampleRateHertz = 16000;
 // const languageCode = 'BCP-47 language code, e.g. en-US';
 
-const config = {
-    encoding: 'OGG_OPUS',
-    sampleRateHertz: '48000',
-    languageCode: 'en-US',
-  };
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({
@@ -69,38 +65,60 @@ async function ls(input) {
 	console.log('stderr:', stderr);
 }
 
-ls('./'+req.file.path).then(function (){
-console.log(outputName);
+ls('./'+req.file.path)
+  .then(function (){
+    console.log(outputName);
+    const config = {
+      encoding: 'OGG_OPUS',
+      sampleRateHertz: '48000',
+      languageCode: 'en-US',
+      enableWordConfidence: true,
+  
+      // enableAutomaticPunctuation: true,
+      profanityFilter:true,
+      speechContext:[{phrases:['islamabad','house','graana','properties','plot',
+        'marla','kanal','crore','lac','lakh','show properties in islamabad',
+        'properties for rent in islamabad']}],
+    };
+    
     const audio = {
-        content: fs.readFileSync('./uploads/'+outputName).toString('base64'),
+      content: fs.readFileSync('./uploads/'+outputName).toString('base64'),
+      // content: fs.readFileSync('./uploads/audio-1544614145153.opus').toString('base64'),
     };
   
     const request = {
-        config: config,
-        audio: audio,
+      config: config,
+      audio: audio,
     };
   
   // Detects speech in the audio file
-  client
-  .recognize(request)
-  .then(data => {
-    const response = data[0];
-    const transcription = response.results
-      .map(result => result.alternatives[0].transcript)
-      .join('\n');
-		console.log(`Transcription: `, transcription);
-		    res.send(' '+transcription);
-  })
-  .catch(err => {
-    console.error('ERROR:', err);
-	})});
+    client
+    .recognize(request)
+    .then(data => {
+      const response = data[0];
+      const transcription = response.results
+        .map(result => result.alternatives[0].transcript)
+        .join('\n');
+      const confidence = response.results
+        .map(result => result.alternatives[0].confidence)
+        .join(`\n`);
+      console.log(
+        `Transcription: ${transcription} \n Confidence: ${confidence}`
+      );
 
-
+      
+      console.log(`Word-Level-Confidence:`);
+      const words = response.results.map(result => result.alternatives[0]);   
+      words[0].words.forEach(a => {
+        console.log(` word: ${a.word}, confidence: ${a.confidence}`);
+      });
+    res.send(''+transcription);
+    })
+    .catch(err => {
+      console.error('ERROR:', err);
+    })
+  });
 });
-
-
-
-
 
 //Start Appliation on the given PORT number
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
