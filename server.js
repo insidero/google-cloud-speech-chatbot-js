@@ -6,7 +6,6 @@ const app = express();
 const multer=require('multer');
 const cors = require('cors');
 var xhr = require('xhr');
-// var ffmpeg = require('fluent-ffmpeg');
 const fs = require('fs');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
@@ -20,28 +19,15 @@ var storage = multer.diskStorage({
 });
 var upload = multer({storage: storage});
 var outputName;
+
 // Imports the Google Cloud client library
 const speech = require('@google-cloud/speech');
-
 // Creates a client
 const client = new speech.SpeechClient();
 
-/**
- * TODO(developer): Uncomment the following lines before running the sample.
- */
-// const filename = 'Local path to audio file, e.g. /path/to/audio.raw';
-// const encoding = 'Encoding of the audio file, e.g. LINEAR16';
-// const sampleRateHertz = 16000;
-// const languageCode = 'BCP-47 language code, e.g. en-US';
-
-
-
 app.use(cors());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -49,23 +35,18 @@ app.use(function (req, res, next) {
 });
 
 
-
-
 app.post('/speechtotext', upload.single('audioFile'), function (req, res) {
 
 console.log('Recieved   ', req.file.path);
-var a='audio.webm';
-var b= 'audio.wav';
-console.log('Recieved   "'+a+'"');
 
-async function ls(input) {
+async function ConvertToOGG_OPUS(input) {
 	outputName='audio-'+Date.now()+'.opus';
 	const { stdout, stderr } = await exec('ffmpeg -i "'+input+'" -vn -acodec  copy "./uploads/'+outputName+'"');
 	console.log('stdout:', stdout);
 	console.log('stderr:', stderr);
 }
 
-ls('./'+req.file.path)
+ConvertToOGG_OPUS('./'+req.file.path)
   .then(function (){
     console.log(outputName);
     const config = {
@@ -73,8 +54,6 @@ ls('./'+req.file.path)
       sampleRateHertz: '48000',
       languageCode: 'en-US',
       enableWordConfidence: true,
-  
-      // enableAutomaticPunctuation: true,
       profanityFilter:true,
       speechContext:[{phrases:['islamabad','house','graana','properties','plot',
         'marla','kanal','crore','lac','lakh','show properties in islamabad',
@@ -106,7 +85,6 @@ ls('./'+req.file.path)
         `Transcription: ${transcription} \n Confidence: ${confidence}`
       );
 
-      
       console.log(`Word-Level-Confidence:`);
       const words = response.results.map(result => result.alternatives[0]);   
       words[0].words.forEach(a => {
