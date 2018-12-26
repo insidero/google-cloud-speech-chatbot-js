@@ -1,0 +1,5 @@
+#!/bin/bash
+#build_code.sh
+export NODE_ENV=production
+cd /home/ubuntu/bot/g-bot
+npm install

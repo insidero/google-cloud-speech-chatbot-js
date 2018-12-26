@@ -1,0 +1,4 @@
+#!/bin/bash
+export NODE_ENV=production
+cd /home/ubuntu/bot/g-bot
+pm2 start server.js --name="web"
