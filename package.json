@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/speech": "^2.1.1",
+    "@google-cloud/text-to-speech": "^0.4.0",
     "audiobuffer-to-wav": "^1.0.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
