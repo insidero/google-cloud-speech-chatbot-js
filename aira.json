@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "aira-bot",
+  "private_key_id": "901d61cf0f294f7e3d03b0588098ad156521476a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDerW2CU8ZxZZ88\nAqb71Y8ZYebZ0VAA8P4RWsj/rVa1hW0kxpDTtKMgXJCVCShmQmwa6LROaTv+OMJV\nSyrT8sOBgDw3iSvt/J/Wfrch1Rt1xCZFT2yZ7jBWyGCeE02WYB00TNH6qMlVlLST\nQ/EgYcrtePOPOqPsONXqSSX2EEIjYEFDGEgq0Bx/zkilsMRU3IiX62YJu/sRyVwf\na0yiE6eFS5C/H3amwybcf9qj+N1mJCYVOsYLxOR/lqVHha8t5mI41f1M6PoCujx4\n/gad+AI8k5ulNU4/zs/v3+Zihc9M+xYVE3ngPZEBGvq5uWaRkK+BZK2HCA1XLQB0\n/wYlQcsfAgMBAAECggEADySqc0WjOFFC4YRyXz6IKQ1zqdq9Vc57fU6lzBaUz9iK\nxHZWxeXLNZmfDuy8y3U3NpCwuToYkzdSpsv9jMT0yrjo8bp7zXThfULIOzB+ELfp\nTvA2YH4PtTck/TZ3/SdqcHKn0ZF876lHPVJOYHdhfl1gx3daS56FS170ZaYKi67s\ndA0Jxn5fekb6qj1vmKM2pMBwOlfUkdaRJtIk6fohiDiJbqneVeScYSGJhD1RgZ5x\niXd7tFcYad10bTNxyaVytW4uhYWN5/hxSZs6lNmYMvp1zjdLcfkBceM/NWrLgv1t\n5pFvyu/eTW/a95aIjQ3q/7lng4XPuJb1Y1tI1STRUQKBgQDzbkKWneIEtkm7t/hv\nxukx++nDUJswnuDTd9px2zt55ftsssvxvluqg58AxgSHT4PsWrvIISxLNKYsPImT\ns9bsP+rs4gSUoXlFgRQU4jRlL4o8WWClbIRU+3fEmh5U08W/Vbh33RO9ayshsuFX\nyIn4IbinS1f9YHbqjVQ+2IK79QKBgQDqLNhQHFLTwf3Xcq287Rsk6v9dJMAGy747\n94NQZ/GHcAcyMP8XXBDmgqZfiJWGvklkfDB6gTjtQ3JqzzjjI8fjGzdH8Ahi1KNY\nCdrE+ayDAY9f8lef8I8piUAbgiWubXguITBEvFXR1jX/0nzeWKn03vvxI/7ps8vQ\nvvpHysnyQwKBgH7QONY354+m2uB05XJtf/wvDMdYDZCVo+/mJyFbIS/OlF07A62r\nChvZN5LylVdcIBCX7+1BAs8m3U58NvuAG321io/e6p33RLLlnG2IrdzsmCn6MbPb\nxVB0NB9yXky4ifK0GEYxIGB0HOMQSf4uFVnzTzuvr2Xqw+hKudGHfwulAoGBAMOR\nKCXfQZzvidsAPvBk5CJ0z0cuheAnD3xtPRFNfXyqppfYK3GKxeJ8gg2Ot7GMAScW\nQDZO7QfZKBjjbpLjMvALrqM5ZweCpdfEgxu1l8jg6Kgsb9l2wVji8tMGYgnGCnQb\n63+7+cAAsaAwXXAjg+yovKeqdB0gtrpihAqo5PaZAoGAdPAzB9zFb7x1/CSAtbhx\nzuWclvJ09EYidgM8z/7NsI77OX3H1ilR2yylUUyHC9ZfE9yLB0ipcnUbm5ym2BBE\nsv0byEDwHs3YiFowUn2SbHEQPu3T25o9kvHpk+f44YlZcdpQkGXxGc4YkwREItXz\nuAlfdfAFatzABaAPWmW/Hbk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "graana-dev-aira@aira-bot.iam.gserviceaccount.com",
+  "client_id": "108587148484319318554",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/graana-dev-aira%40aira-bot.iam.gserviceaccount.com"
+}
