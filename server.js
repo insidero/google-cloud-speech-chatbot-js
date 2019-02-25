@@ -30,6 +30,7 @@ const corsOptions = {
   origin: 'http://localhost:8080',
   credentials: true
 };
+
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -65,8 +66,7 @@ app.post('/speechtotext', upload.single('audioFile'), function (req, res) {
       const config = {
         encoding: 'OGG_OPUS',
         sampleRateHertz: '48000',
-        languageCode: 'en-US',
-        enableWordConfidence: true,
+        languageCode: 'ur-PK',
         profanityFilter: true,
         speechContext: [
           {
@@ -82,7 +82,10 @@ app.post('/speechtotext', upload.single('audioFile'), function (req, res) {
               'lac',
               'lakh',
               'show properties in islamabad',
-              'properties for rent in islamabad'
+              'properties for rent in islamabad',
+              'g9',
+              'apartment for rent in f11 islamabad',
+              'house for sale in f11/2 islamabad'
             ]
           }
         ]
@@ -138,7 +141,7 @@ app.post('/speechtotextSimple', upload.single('audioFile'), function (req, res) 
   const config = {
     encoding: 'LINEAR16',
 
-    languageCode: 'en-US',
+    languageCode: 'en-IN',
     enableWordConfidence: true,
     profanityFilter: true,
     speechContext: [
@@ -205,10 +208,6 @@ app.post('/textToSpeech', async function (req, res) {
     audioConfig: { audioEncoding: 'MP3' }
   };
   try {
-
-
-
-
     const [response] = await textClient.synthesizeSpeech(request);
     const writeFile = util.promisify(fs.writeFile);
     var date = Date.now();
