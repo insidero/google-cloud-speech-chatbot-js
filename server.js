@@ -85,7 +85,8 @@ app.post('/speechtotext', upload.single('audioFile'), function (req, res) {
               'properties for rent in islamabad',
               'g9',
               'apartment for rent in f11 islamabad',
-              'house for sale in f11/2 islamabad'
+              'house for sale in f11/2 islamabad',
+              'plots', 'flat', 'plot file for sale', 'f11', 'f6'
             ]
           }
         ]
@@ -158,7 +159,11 @@ app.post('/speechtotextSimple', upload.single('audioFile'), function (req, res) 
           'lac',
           'lakh',
           'show properties in islamabad',
-          'properties for rent in islamabad'
+          'properties for rent in islamabad',
+          'house for sale in f11 islamabad',
+          'apartment for rent in g11 islamabad',
+          'e11', 'f7', 'f8', 'f6', 'g6', 'g8', 'g7',
+          'kya haal hai'
         ]
       }
     ]
