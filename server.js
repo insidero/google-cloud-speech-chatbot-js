@@ -35,7 +35,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:8080', 'https://aira.graana.rocks');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8080', 'https://example.com');
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
